@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Route, Router, RouterStateSnapshot } from '@angular/router';
 import { BehaviorSubject, finalize, map, Observable, tap, timer, combineLatest } from 'rxjs';
-import { User } from '../Model/user';
+
 import {
   SocialAuthService,
   GoogleLoginProvider,

@@ -56,6 +56,7 @@ import { AgGridModule } from 'ag-grid-angular';
   
     
   ],
+  
   providers: [
     {
       provide: 'SocialAuthServiceConfig',

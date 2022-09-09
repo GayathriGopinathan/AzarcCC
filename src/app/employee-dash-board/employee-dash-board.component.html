@@ -1,13 +1,24 @@
-<div >
+<div>
+  <input id="searchInput" placeholder="Search"
+  type="search"
+  (keyup)="SearchEmployees($event)"
 
-    <ag-grid-angular
-    style="width: 500px; height: 200px;"
+/>
+</div>
+
+
+<div class="grid-wrapper">
+
+    <ag-grid-angular id="angularGrid"
+    #agGrid style="width: 100%; height: 100%;"
     class="ag-theme-alpine"
     
     [columnDefs]="columnDefs"
     [rowData]="employees$ | async"
- 
+   
+
     [gridOptions]="gridOptions"
+   
     >
     </ag-grid-angular>
 

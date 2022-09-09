@@ -5,14 +5,12 @@ import { Observable, throwError, BehaviorSubject, finalize, map, tap, timer } fr
 
 
 
-export interface User {
- // id: number;
+export interface Employee {
+
   firstName: string;
   username: string;
- // phone: number;
- // email: string;
-  // address:string[]
-
+  email:string
+ 
 
 
 }
@@ -22,14 +20,17 @@ export interface User {
 })
 
 export class EmployeeHttpService {
-  //baseURL: string = "https://jsonplaceholder.typicode.com/users";
+  
   baseURL: string = "https://dummyjson.com/users";
-  columnUrl: string = "assets/column.json"
+  columnUrl: string = "assets/column.json";
+  filterUrl:string="https://dummyjson.com/users/search/?q="
+ 
+
   constructor(private http: HttpClient) { }
 
   getEmployeeList() {
     return this.http.get<{
-      users: User[];
+      users: Employee[];
       total: number;
       skip: number;
       limit: number;
@@ -38,6 +39,9 @@ export class EmployeeHttpService {
 
   getColumnObservable() {
     return this.http.get<{ column: ColDef[] }>(this.columnUrl);
+  }
+  getFilterResult(value:string){
+    return this.http.get< {users: Employee[];}>(this.filterUrl +value)
   }
 
 }

@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {
   SocialAuthService,
   GoogleLoginProvider,
@@ -13,18 +13,22 @@ import {
   GridApi,
   GridReadyEvent,
   ValueGetterParams,
-  GridOptions
+  GridOptions,
+
 } from 'ag-grid-community';
 
-import { Observable } from 'rxjs';
-import { User } from '../Services/employee-http.service';
+import { Observable, Subject, combineLatest, Subscription, fromEvent, of } from 'rxjs';
+import { map, startWith, debounceTime, distinctUntilChanged, filter } from 'rxjs/operators'
+import { Employee } from '../Services/employee-http.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-employee-dash-board',
   templateUrl: './employee-dash-board.component.html',
-  styleUrls: ['./employee-dash-board.component.css']
+  styleUrls: ['./employee-dash-board.component.scss']
 })
 export class EmployeeDashBoardComponent implements OnInit {
+
 
   constructor(
     private _http: HttpClientModule,
@@ -32,14 +36,17 @@ export class EmployeeDashBoardComponent implements OnInit {
     private _empService: EmployeeService
   ) {
 
+
   }
 
-  
- 
-  readonly employees$ =this._empService.employees$;
-  readonly loading$ = this._empService.loading$;
 
-  readonly gridOptions: GridOptions<User> = {
+
+  employees$ = this._empService.employees$;
+  readonly loading$ = this._empService.loading$;
+ // search$ = this._empService.search$;
+
+
+  readonly gridOptions: GridOptions<Employee> = {
     suppressCellFocus: true,
     animateRows: true,
     stopEditingWhenCellsLoseFocus: true,
@@ -51,7 +58,7 @@ export class EmployeeDashBoardComponent implements OnInit {
   };
 
 
-  readonly columnDefs: Array<ColDef<User>> = [
+  readonly columnDefs: Array<ColDef<Employee>> = [
     {
       headerName: 'FirstName',
       field: 'firstName',
@@ -61,36 +68,58 @@ export class EmployeeDashBoardComponent implements OnInit {
       headerName: 'Username',
       field: 'username',
     },
-    
-    
-   
-   
+    {
+      headerName: 'Email',
+      field: 'email',
+    },
   ];
 
- 
+
+
 
 
   ngOnInit(): void {
- 
-    this._empService.getEmployeeList().subscribe((value)=>{
-      console.log(value)
-      console.log(this.employees$)
-      console.log(this.columnDefs)
-      
-    })
+    this.getEmployeeList();
 
-    
-      
+
   }
 
-     
- 
-    
+  getEmployeeList() {
+    this._empService.getEmployeeList().subscribe()
+  }
+
+
+
+  SearchEmployees(event: KeyboardEvent) {
+    this.employees$ = this._empService.search$;
+
+    let value: string = ""
+    if ((<HTMLInputElement>event.target).value) {
+
+      value = (<HTMLInputElement>event.target).value;
+      this._empService.searchFilter(value).
+        pipe(
+          debounceTime(1000)).
+        subscribe((response => console.log(response)));
+    }
+
+
+  }
 
 
 
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
