@@ -1,0 +1,39 @@
+<mat-toolbar color="primary"  *ngIf="isAuthenticated===true">
+  <mat-toolbar-row>
+   
+
+    <span class="navigation-bar-title">
+      Azarc
+    </span>
+
+    <span class="navigation-bar-spacer"></span>   
+
+    <ul class="navigation-items">
+
+      <li>
+
+        <button mat-icon-button [matMenuTriggerFor]="auth">
+          <span>Welcome {{userName}} !</span>
+          <mat-icon>person</mat-icon>
+        </button>
+
+        <mat-menu #auth="matMenu">
+          <ng-container >
+            <button mat-menu-item>
+              <mat-icon>exit_to_app </mat-icon>
+              <span (click)="logOut()">
+                Logout
+              </span>
+            </button>
+
+          </ng-container>
+
+        </mat-menu>
+
+      </li>
+
+    </ul>
+
+  </mat-toolbar-row>
+
+</mat-toolbar>

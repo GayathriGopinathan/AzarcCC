@@ -6,6 +6,7 @@ import {
   SocialUser,
 } from '@abacritt/angularx-social-login';
 import { Router } from '@angular/router';
+import {DataService} from '../Services/data.service'
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private socialAuthService: SocialAuthService,
-    private _router: Router
+    private _router: Router,
+    private _dataService:DataService
   ) { }
 
   ngOnInit(): void { 
@@ -41,6 +43,8 @@ export class LoginComponent implements OnInit {
         this.socialUser = user;
         this.isLoggedin = true;
         this._router.navigate(['dashboard'])
+
+        this._dataService.setName(this.socialUser.name)
         
        
       });

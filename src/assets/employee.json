@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "name": "Romin",
+        "username": "Romin Irani",
+        "phone": "408-1234567",
+        "email": "romin.k.irani@gmail.com"
+    },
+    {
+        "id": 2,
+        "name": "Neil",
+        "username": "Neil Irani",
+        "phone": "408-1111111",
+        "email": "neilrirani@gmail.com"
+    }
+]

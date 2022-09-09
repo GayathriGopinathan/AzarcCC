@@ -1,0 +1,29 @@
+[
+    {
+      "colId": "id",
+      "field": "id"
+    },
+    {
+      "colId": "name",
+      "field": "name"
+    },
+    {
+      "colId": "username",
+      "field": "username"
+     
+    },
+    {
+      "colId": "email",
+      "field": "email"
+     
+    },
+    {
+        "colId": "phone",
+        "field": "phone"
+      },
+      {
+        "colId": "website",
+        "field": "website"
+      }
+    
+  ]

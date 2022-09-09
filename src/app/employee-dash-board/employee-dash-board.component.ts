@@ -6,6 +6,18 @@ import {
   SocialUser,
 } from '@abacritt/angularx-social-login';
 import { EmployeeService } from '../Services/employee.service'
+import {
+  ColDef,
+  ColumnApi,
+  GetRowNodeIdFunc,
+  GridApi,
+  GridReadyEvent,
+  ValueGetterParams,
+  GridOptions
+} from 'ag-grid-community';
+
+import { Observable } from 'rxjs';
+import { User } from '../Services/employee-http.service';
 
 @Component({
   selector: 'app-employee-dash-board',
@@ -13,8 +25,6 @@ import { EmployeeService } from '../Services/employee.service'
   styleUrls: ['./employee-dash-board.component.css']
 })
 export class EmployeeDashBoardComponent implements OnInit {
-  employee!: any[]
-
 
   constructor(
     private _http: HttpClientModule,
@@ -24,30 +34,63 @@ export class EmployeeDashBoardComponent implements OnInit {
 
   }
 
+  
+ 
+  readonly employees$ =this._empService.employees$;
+  readonly loading$ = this._empService.loading$;
+
+  readonly gridOptions: GridOptions<User> = {
+    suppressCellFocus: true,
+    animateRows: true,
+    stopEditingWhenCellsLoseFocus: true,
+    defaultColDef: {
+      minWidth: 150,
+      sortable: true,
+      resizable: true,
+    },
+  };
+
+
+  readonly columnDefs: Array<ColDef<User>> = [
+    {
+      headerName: 'FirstName',
+      field: 'firstName',
+      sort: 'asc',
+    },
+    {
+      headerName: 'Username',
+      field: 'username',
+    },
+    
+    
+   
+   
+  ];
+
+ 
+
+
   ngOnInit(): void {
-    console.log('hhehr')
-    //this.getEmployeeList()
-  }
-  getEmployeeList() {
-    this._empService.getEmployeeList().subscribe({
-      next: (response) => {
-        console.log(response)
-      },
-      error: () => {
-        console.log('Error')
-      },
-      complete: () => {
-        console.log('requestCompleted')
-      }
-
+ 
+    this._empService.getEmployeeList().subscribe((value)=>{
+      console.log(value)
+      console.log(this.employees$)
+      console.log(this.columnDefs)
       
-
     })
+
+    
+      
   }
 
-  logOut(): void {
-    this.socialAuthService.signOut();
-  }
+     
+ 
+    
+
+
+
+
+ 
 
 
 }

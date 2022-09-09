@@ -17,13 +17,25 @@ import { EmployeeDashBoardComponent } from './employee-dash-board/employee-dash-
 import { AuthService } from './Services/auth.service';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+
+import { HeaderComponent } from './navigation/header/header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+import { AgGridModule } from 'ag-grid-angular';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    EmployeeDashBoardComponent
+    EmployeeDashBoardComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +43,18 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     SocialLoginModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgGridModule,
+
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSidenavModule,
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatProgressSpinnerModule
+  
+    
   ],
   providers: [
     {

@@ -1,5 +1,27 @@
-<div *ngIf="socialAuthService.authState | async as socialUser">
-    <p>Hello, {{socialUser}}</p>
-    <p>Your email: {{socialUser?.email}}</p>
-    <button mat-raised-button (click)="logOut()">Logout</button>
+<div >
+
+    <ag-grid-angular
+    style="width: 500px; height: 200px;"
+    class="ag-theme-alpine"
+    
+    [columnDefs]="columnDefs"
+    [rowData]="employees$ | async"
+ 
+    [gridOptions]="gridOptions"
+    >
+    </ag-grid-angular>
+
+
+  
+    <mat-spinner *ngIf="loading$ | async" ></mat-spinner> ,
+    
   </div>
+
+  <!-- <ag-grid-angular 
+    style="width: 500px; height: 200px;" 
+    class="ag-theme-alpine"
+    [rowData]="rowData" 
+    [columnDefs]="columnDefs">
+</ag-grid-angular>
+
+  // [rowData]="employee$ | async"-->
