@@ -19,6 +19,13 @@
 
         <mat-menu #auth="matMenu">
           <ng-container >
+
+            <button mat-menu-item>
+             
+              <span (click)="EditProfile()">
+                My Profile
+              </span>
+            </button>
             <button mat-menu-item>
               <mat-icon>exit_to_app </mat-icon>
               <span (click)="logOut()">

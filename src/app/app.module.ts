@@ -21,13 +21,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatMenuModule} from '@angular/material/menu';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatCardModule} from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { HeaderComponent } from './navigation/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AgGridModule } from 'ag-grid-angular';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 @NgModule({
@@ -35,7 +39,8 @@ import { AgGridModule } from 'ag-grid-angular';
     AppComponent,
     LoginComponent,
     EmployeeDashBoardComponent,
-    HeaderComponent
+    HeaderComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +57,9 @@ import { AgGridModule } from 'ag-grid-angular';
     MatSidenavModule,
     BrowserAnimationsModule,
     MatMenuModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatCardModule,
+    MatFormFieldModule,MatInputModule
   
     
   ],

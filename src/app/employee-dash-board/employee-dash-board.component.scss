@@ -1,7 +1,14 @@
+mat-card {
+  height: stretch;
+  width: stretch;
+  box-sizing: border-box;
+}
 .grid-wrapper{
-    display: flex;
+  display: flex;
   flex-direction: column;
   height: 100%;
+  margin-top: 10px;
+
 }
 .angularGrid {
     flex: 1 1 0px;

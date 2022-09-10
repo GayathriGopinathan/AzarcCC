@@ -1,34 +1,29 @@
-<div>
-  <input id="searchInput" placeholder="Search"
-  type="search"
-  (keyup)="SearchEmployees($event)"
+<mat-card>
 
-/>
-</div>
-
-
-<div class="grid-wrapper">
-
-    <ag-grid-angular id="angularGrid"
-    #agGrid style="width: 100%; height: 100%;"
-    class="ag-theme-alpine"
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Search </mat-label>
     
-    [columnDefs]="columnDefs"
-    [rowData]="employees$ | async"
-   
+      <input matInput id="searchInput"  type="search" (keyup)="SearchEmployees($event)" />
+      <mat-icon matPrefix>search</mat-icon>
+    </mat-form-field>
+  </div>
 
-    [gridOptions]="gridOptions"
-   
-    >
+
+  <div class="grid-wrapper">
+
+    <ag-grid-angular id="angularGrid" #agGrid style="width: 100%; height: 100%;" class="ag-theme-alpine"
+      [columnDefs]="columnDefs" [rowData]="employees$ | async" [gridOptions]="gridOptions">
     </ag-grid-angular>
 
 
-  
-    <mat-spinner *ngIf="loading$ | async" ></mat-spinner> ,
-    
-  </div>
 
-  <!-- <ag-grid-angular 
+    <mat-spinner *ngIf="loading$ | async"></mat-spinner> ,
+
+  </div>
+</mat-card>
+
+<!-- <ag-grid-angular 
     style="width: 500px; height: 200px;" 
     class="ag-theme-alpine"
     [rowData]="rowData" 

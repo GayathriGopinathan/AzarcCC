@@ -1,0 +1,221 @@
+<mat-toolbar>
+  <span>My Profile</span>
+
+
+</mat-toolbar>
+<mat-card>
+  <mat-card-content>
+    <form class="form-horizontal" [formGroup]="form">
+
+      <div>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Name </mat-label>
+          <input matInput id="name" name="name" readonly value="{{socialUser.name}}" formControlName="name">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label> Email</mat-label>
+          <input matInput placeholder="email" name="email" readonly value="{{socialUser.email}}"
+            formControlName="email">
+        </mat-form-field>
+      </div>
+      <div formGroupName="address">
+        <div>
+          <mat-label>Residential Address</mat-label>
+        </div>
+        <hr>
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label> Street1</mat-label>
+
+            <input matInput type="text" name="street" formControlName="street">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Street2</mat-label>
+
+            <input matInput type="text" name="street2" formControlName="street2">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label> ZipCode</mat-label>
+
+            <input matInput type="text" name="zipCode" formControlName="zipCode">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label> City</mat-label>
+
+            <input matInput type="text" name="city" formControlName="city">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label> State</mat-label>
+
+            <input matInput type="text" name="state" formControlName="state">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label> Country</mat-label>
+
+            <input matInput type="text" name="country" formControlName="country">
+          </mat-form-field>
+        </div>
+      </div>
+      <div formGroupName="office">
+        <div>
+          <mat-label>Preferred Office Location </mat-label>
+        </div>
+        <hr>
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label> Location 1</mat-label>
+
+            <input matInput type="text" name="location1" formControlName="location1">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label> Location 2</mat-label>
+
+            <input matInput type="text" name="location2" formControlName="location2">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label> Location 3</mat-label>
+
+            <input matInput type="text" name="location3" formControlName="location3">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+      </div>
+
+    </form>
+  </mat-card-content>
+</mat-card>
+
+
+
+
+<!-- 
+
+<mat-toolbar>
+    <span>My Profile</span>
+    <mat-card class="my-card">
+        <mat-card-content>
+            <form class="my-form">
+
+                <mat-form-field class="full-width">
+                    <mat-label> Name</mat-label>
+                    <input  matInput  placeholder="First name"  name="fname"  readonly value="{{socialUser.name}}">
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <mat-label> Name</mat-label>
+                    <input  matInput  placeholder="email"  name="email"  readonly value="{{socialUser.email}}">
+                </mat-form-field>
+
+                <!-- <div>
+                    <h4 class="modal-title">Address form</h4>
+
+                    <button type="button" class="close" aria-label="Close" 
+                     (click)="activeModal.dismiss('exit click')">
+                  
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div> 
+
+            </form>
+        </mat-card-content>
+        
+    </mat-card>
+    <mat-card>
+        <div class="modal-body">
+
+            <form [formGroup]="formInstance">
+          
+              <div class="form-group">
+          
+                <label class="text-strong">address line 1 :</label>
+                <input type="text" name="addressLine1" formControlName="addressLine1" 
+                 class="form-control form-control-sm">
+          
+              </div>
+          
+              <div class="form-group">
+          
+                <label class="text-strong">address line 2 :</label>
+          
+                <input type="text" name="addressLine2" formControlName="addressLine2" 
+                 class="form-control form-control-sm">
+          
+              </div>
+          
+              <div class="form-group">
+          
+                <label class="text-strong">zip code :</label>
+          
+                <input type="number" name="zipCode" formControlName="zipCode" 
+                 class="form-control form-control-sm" >
+          
+              </div>
+          
+              <div class="form-group">
+          
+                <label class="text-strong">city :</label>
+          
+                <input type="text" name="city" formControlName="city" 
+                 class="form-control form-control-sm">
+          
+              </div>
+          
+              <div class="form-group">
+          
+                <label class="text-strong">country :</label>
+          
+                <select  name="country" formControlName="country"  
+                 class="form-control form-control-sm" >
+          
+                  <option value="">Choose a country</option>
+          
+                  <option value="France">France</option>
+          
+                  <option value="Germany">Germany</option>
+          
+                  <option value="Italy">Italy</option>
+          
+                </select>
+          
+              </div>
+
+              <div>
+
+              </div>
+          
+            </form>
+          
+          </div>
+          <div class="modal-footer">
+
+            <button type="button" class="btn btn-outline-dark" 
+            [disabled]="formInstance.invalid" (click)="save()">Save</button>
+          
+          </div>
+    </mat-card>
+    
+</mat-toolbar> -->

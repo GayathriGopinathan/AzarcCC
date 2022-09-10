@@ -5,7 +5,8 @@ import {
   SocialUser,
 } from '@abacritt/angularx-social-login';
 
-import {DataService} from '../../Services/data.service'
+import {DataService} from '../../Services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -18,7 +19,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     public socialAuthService: SocialAuthService,
-    public dataService:DataService
+    public dataService:DataService,
+    private _router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -31,9 +33,9 @@ export class HeaderComponent implements OnInit {
   
   }
 
-  //public isAuthenticated(): boolean {
-   // return this.authService.isAuthenticated();
-  //}
+  EditProfile(){
+    this._router.navigate(['profile'])
+  }
 
   logOut(): void {
     this.socialAuthService.signOut();
