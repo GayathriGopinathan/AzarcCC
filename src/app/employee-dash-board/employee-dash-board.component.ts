@@ -55,6 +55,7 @@ export class EmployeeDashBoardComponent implements OnInit {
       sortable: true,
       resizable: true,
     },
+    rowBuffer: 20
   };
 
 
@@ -79,6 +80,7 @@ export class EmployeeDashBoardComponent implements OnInit {
 
 
   ngOnInit(): void {
+    console.log('hhh')
     this.getEmployeeList();
 
 

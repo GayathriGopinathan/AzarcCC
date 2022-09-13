@@ -36,16 +36,15 @@ export class LoginComponent implements OnInit {
         setTimeout(()=>{
           if(user==null){
             this.isLoggedin=false
+            this._dataService.setLoggedIn(false)
           }                   
-        },5000)
-
-      
+        },1000)      
         this.socialUser = user;
         this.isLoggedin = true;
-        this._router.navigate(['dashboard'])
-
-        this._dataService.setName(this.socialUser.name)
+       this._dataService.setLoggedIn(true) 
+        this._dataService.setName(this.socialUser.name)    
         
+        this._router.navigate(['dashboard'])
        
       });
     

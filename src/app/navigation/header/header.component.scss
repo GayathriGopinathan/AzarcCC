@@ -7,13 +7,30 @@
 //     color: lightgray;
 // }
 
-// .navigation-items{
-//     list-style-type: none;
-//     padding: 0;
-//     margin: 0;
-// }
+.navigation-bar-title{
+    overflow: hidden;
+}
 
-// mat-toolbar{
-//     border-radius: 3px;
-// }
+.navigation-bar-spacer{
+    text-align: right;
+    width:75%
+}
+.navigation-items{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    
+}
+
+mat-toolbar{
+    border-radius: 3px;
+}
+
+a{
+    color:white;
+   &:hover{
+        text-decoration: underline;
+    }
+}
 

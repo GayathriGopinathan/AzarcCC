@@ -25,6 +25,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatGridListModule} from '@angular/material/grid-list'
 
 import { HeaderComponent } from './navigation/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -59,7 +60,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     MatMenuModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    MatFormFieldModule,MatInputModule
+    MatFormFieldModule,MatInputModule,
+    MatGridListModule
   
     
   ],

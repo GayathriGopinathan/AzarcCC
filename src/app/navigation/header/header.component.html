@@ -2,8 +2,8 @@
   <mat-toolbar-row>
    
 
-    <span class="navigation-bar-title">
-      Azarc
+    <span class="navigation-bar-title" >
+     <a routerLink="/dashboard"> Azarc </a>
     </span>
 
     <span class="navigation-bar-spacer"></span>   
@@ -23,6 +23,7 @@
             <button mat-menu-item>
              
               <span (click)="EditProfile()">
+                <mat-icon> person_pin</mat-icon>
                 My Profile
               </span>
             </button>

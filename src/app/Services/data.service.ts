@@ -7,10 +7,19 @@ import { BehaviorSubject } from 'rxjs';
 export class DataService {
   private nameSource = new BehaviorSubject<string>('');
   name = this.nameSource.asObservable()
+  isLoggedIn:boolean=false
 
   constructor() { }
 
   setName(name: string) {
     this.nameSource.next(name);
+  }
+
+  removeName(){
+    this.nameSource.unsubscribe();
+  }
+
+  setLoggedIn(flag:boolean){
+    this.isLoggedIn=flag
   }
 }

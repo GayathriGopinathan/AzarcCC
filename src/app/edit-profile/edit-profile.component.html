@@ -7,102 +7,116 @@
   <mat-card-content>
     <form class="form-horizontal" [formGroup]="form">
 
-      <div>
-        <mat-form-field class="full-width" appearance="fill">
-          <mat-label>Name </mat-label>
-          <input matInput id="name" name="name" readonly value="{{socialUser.name}}" formControlName="name">
-        </mat-form-field>
+      <div class="row" *ngIf="showMsg">
+        <div class="col-xs-12">
+          <p class="alert alert-success">
+            <strong>Save Success!</strong>
+
+          </p>
+        </div>
       </div>
-      <div>
-        <mat-form-field class="full-width" appearance="fill">
-          <mat-label> Email</mat-label>
-          <input matInput placeholder="email" name="email" readonly value="{{socialUser.email}}"
-            formControlName="email">
-        </mat-form-field>
-      </div>
+
+      <mat-grid-list cols="4" rowHeight="60px" gutterSize="15px">
+        <mat-grid-tile colspan="4">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Name </mat-label>
+            <input matInput id="name" name="name" readonly value="{{socialUser.name}}" formControlName="name">
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="4">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label> Email</mat-label>
+            <input matInput placeholder="email" name="email" readonly value="{{socialUser.email}}"
+              formControlName="email">
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
       <div formGroupName="address">
+
         <div>
           <mat-label>Residential Address</mat-label>
         </div>
         <hr>
-        <div>
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label> Street1</mat-label>
+        <div class="form-group">
+          <mat-grid-list cols="4" rowHeight="60px" gutterSize="15px">
+            <mat-grid-tile colspan="2">
+              <mat-form-field class="full-width" appearance="fill">
+                <mat-label> Street1</mat-label>
 
-            <input matInput type="text" name="street" formControlName="street">
-          </mat-form-field>
+                <input matInput type="text" name="street" formControlName="street">
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="2">
+              <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Street2</mat-label>
+                <input matInput type="text" name="street2" formControlName="street2">
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="4">
+              <mat-form-field class="full-width" appearance="fill">
+                <mat-label> ZipCode</mat-label>
+                <input matInput type="text" name="zipCode" formControlName="zipCode">
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="2">
+              <mat-form-field class="full-width" appearance="fill">
+                <mat-label> City</mat-label>
+                <input matInput type="text" name="city" formControlName="city">
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="2">
+              <mat-form-field class="full-width" appearance="fill">
+                <mat-label> State</mat-label>
+                <input matInput type="text" name="state" formControlName="state">
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="2">
+              <mat-form-field class="full-width" appearance="fill">
+                <mat-label> Country</mat-label>
+                <input matInput type="text" name="country" formControlName="country">
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
         </div>
 
-        <div>
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label>Street2</mat-label>
-
-            <input matInput type="text" name="street2" formControlName="street2">
-          </mat-form-field>
-        </div>
-
-        <div>
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label> ZipCode</mat-label>
-
-            <input matInput type="text" name="zipCode" formControlName="zipCode">
-          </mat-form-field>
-        </div>
-
-        <div>
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label> City</mat-label>
-
-            <input matInput type="text" name="city" formControlName="city">
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label> State</mat-label>
-
-            <input matInput type="text" name="state" formControlName="state">
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label> Country</mat-label>
-
-            <input matInput type="text" name="country" formControlName="country">
-          </mat-form-field>
-        </div>
       </div>
       <div formGroupName="office">
         <div>
           <mat-label>Preferred Office Location </mat-label>
         </div>
         <hr>
-        <div>
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label> Location 1</mat-label>
+        <mat-grid-list cols="4" rowHeight="60px" gutterSize="15px">
+          <mat-grid-tile colspan="4" >
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label> Location 1</mat-label>
+              <input matInput type="text" name="location1" formControlName="location1">
+            </mat-form-field>
+          </mat-grid-tile>
 
-            <input matInput type="text" name="location1" formControlName="location1">
-          </mat-form-field>
-        </div>
+          <mat-grid-tile colspan="4">
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label> Location 2</mat-label>
+              <input matInput type="text" name="location2" formControlName="location2">
+            </mat-form-field>
+          </mat-grid-tile>
 
-        <div>
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label> Location 2</mat-label>
-
-            <input matInput type="text" name="location2" formControlName="location2">
-          </mat-form-field>
-        </div>
-
-        <div>
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label> Location 3</mat-label>
-
-            <input matInput type="text" name="location3" formControlName="location3">
-          </mat-form-field>
-        </div>
+          <mat-grid-tile colspan="4">
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label> Location 3</mat-label>
+              <input matInput type="text" name="location3" formControlName="location3">
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
       </div>
 
       <div>
-        <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
       </div>
 
     </form>

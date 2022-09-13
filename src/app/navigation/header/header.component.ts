@@ -38,7 +38,12 @@ export class HeaderComponent implements OnInit {
   }
 
   logOut(): void {
+    this.isAuthenticated=false
+    this.dataService.removeName();
     this.socialAuthService.signOut();
+    this._router.navigate([''])
+    
+    
   }
 
 

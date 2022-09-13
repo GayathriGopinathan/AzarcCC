@@ -21,7 +21,7 @@ export interface Employee {
 
 export class EmployeeHttpService {
   
-  baseURL: string = "https://dummyjson.com/users";
+  baseURL: string = "https://dummyjson.com/users/?limit=20";
   columnUrl: string = "assets/column.json";
   filterUrl:string="https://dummyjson.com/users/search/?q="
  
@@ -31,10 +31,8 @@ export class EmployeeHttpService {
   getEmployeeList() {
     return this.http.get<{
       users: Employee[];
-      total: number;
-      skip: number;
-      limit: number;
-    }>(this.baseURL);
+     
+    }>(this.baseURL );
   }
 
   getColumnObservable() {

@@ -15,6 +15,7 @@ import { Address } from '../Model/address';
 export class EditProfileComponent implements OnInit {
   socialUser!: SocialUser;
   form!: FormGroup;
+  showMsg:boolean=false
 
   constructor(
     private socialAuthService: SocialAuthService,
@@ -30,7 +31,7 @@ export class EditProfileComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       name: this.socialUser.name,
-      email:[null],
+      email:this.socialUser.email,
       address: this.formBuilder.group({
         street: [null, Validators.required],
         street2: [null],
@@ -53,6 +54,7 @@ export class EditProfileComponent implements OnInit {
     if (this.form.valid) {
       console.log('form submitted');
       console.log(this.form)
+      this.showMsg=true
     } else {
       console.log(this.form)
       // validate all form fields
